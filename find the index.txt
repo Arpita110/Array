@@ -1,0 +1,24 @@
+FIND THE INDEX
+Input: nums = [2,3,-1,8,4]
+Output: 3
+Explanation: The sum of the numbers before index 3 is: 2 + 3 + -1 = 4
+The sum of the numbers after index 3 is: 4 = 4
+
+
+
+int findMiddleIndex(vector<int>& nums) {
+        int sum=0;
+        for(int i=0; i<nums.size(); i++){
+            sum+=nums[i];
+        }
+        int sumleft = 0;
+        for(int i=0; i<nums.size(); i++)
+        {
+            int sumright = sum - sumleft - nums[i];
+            if(sumleft == sumright){
+                return i;
+            }
+            sumleft += nums[i]; 
+        }
+        return -1;
+    }

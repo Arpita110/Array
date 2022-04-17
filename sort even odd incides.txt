@@ -1,0 +1,24 @@
+SORT EVEN AND ODD INDICES
+
+Input: nums = [4,1,2,3]
+Output: [2,3,4,1]
+
+ vector<int> sortEvenOdd(vector<int>& nums) {
+        vector<int> even,odd;
+        for(int i=0;i<nums.size();i++)
+            if(i%2 !=0)
+               odd.push_back(nums[i]);
+            else
+                even.push_back(nums[i]);
+        sort(even.begin(),even.end());
+        sort(odd.begin(),odd.end(),greater<int>());
+        int size = nums.size();
+        nums.clear();
+        int x = 0,j = 0;
+        for(int i=0;i<size;i++)
+             if(i%2 !=0)
+                nums.push_back(odd[x++]);
+            else
+                nums.push_back(even[j++]);
+        return nums;
+    }

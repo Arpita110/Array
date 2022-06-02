@@ -1,0 +1,25 @@
+
+N-th Tribonacci Number
+Input: n = 4
+Output: 4
+Explanation:
+T_3 = 0 + 1 + 1 = 2
+T_4 = 1 + 1 + 2 = 4
+
+int tribonacci(int n) {
+        if(n==0)
+            return 0;
+        else
+            if(n==1||n==2)
+                return 1;
+        int a=0,b=1,c=1;
+        int d;
+        for(int i=3;i<=n;i++)
+        {
+            d=a+b+c;
+            a=b;
+            b=c;
+            c=d;
+        }
+        return d;
+    }
